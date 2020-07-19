@@ -13,7 +13,7 @@
   translation: "Last Modified"
 
 - id: meta_translations
-  translation: "Translations"
+  translation: "語言"
 
 # Table of Contents
 - id: toc_title
