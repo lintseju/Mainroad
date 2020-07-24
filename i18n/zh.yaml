@@ -15,6 +15,9 @@
 - id: meta_translations
   translation: "Read in"
 
+- id: meta_word_count
+  translation: "字"
+
 # Table of Contents
 - id: toc_title
   translation: "內文"

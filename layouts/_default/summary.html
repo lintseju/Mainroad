@@ -15,9 +15,11 @@
 		{{- with .Params.lead }}
 		<p class="list__lead post__lead">{{ . }}</p>
 		{{- end }}
+		{{ if eq .Type "posts"}}
 		{{ with partial "post_meta.html" . -}}
 		<div class="list__meta meta">{{ . }}</div>
 		{{- end }}
+		{{ end }}
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		{{ .Summary }}
