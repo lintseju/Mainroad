@@ -10,13 +10,24 @@
 {{- if $sidebar -}}
 <aside class="sidebar{{ if eq $sidebar "left" }} sidebar--left{{ end }}">
 {{- $root := . }}
-{{- with (default .Site.Params.sidebar.widgets .Params.widgets) -}}
-	{{- range $widget := . }}
-		{{- $p := printf "widgets/%s.html" $widget }}
-		{{- partial $p $root }}
+{{- if eq .Kind "page" -}}
+	{{- with (default .Site.Params.sidebar.page_widgets .Params.page_widgets) -}}
+		{{- range $widget := . }}
+			{{- $p := printf "widgets/%s.html" $widget }}
+			{{- partial $p $root }}
+		{{- end }}
+	{{- else }}
+		<p class="sidebar__warning"><strong>{{ T "sidebar_warning" }}:</strong><br>{{ T "sidebar_recommendation" }}</p>
 	{{- end }}
-{{- else }}
-	<p class="sidebar__warning"><strong>{{ T "sidebar_warning" }}:</strong><br>{{ T "sidebar_recommendation" }}</p>
+{{- else -}}
+	{{- with (default .Site.Params.sidebar.widgets .Params.widgets) -}}
+		{{- range $widget := . }}
+			{{- $p := printf "widgets/%s.html" $widget }}
+			{{- partial $p $root }}
+		{{- end }}
+	{{- else }}
+		<p class="sidebar__warning"><strong>{{ T "sidebar_warning" }}:</strong><br>{{ T "sidebar_recommendation" }}</p>
+	{{- end }}
 {{- end }}
 </aside>
 {{- end }}
