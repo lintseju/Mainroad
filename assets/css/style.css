@@ -1258,9 +1258,11 @@ textarea {
 		width: 88%;
 	}
 
-	.meta__item {
-		display: block;
-		margin-left: 0;
+	img {
+		width: auto\9; /* ie8 */
+		max-width: 100%;
+		height: auto;
+		vertical-align: bottom;
 	}
 
 	.authorbox {
